@@ -19,7 +19,6 @@ jobs:
         with:
           packages: cmake gcc-g++
 
-      - run: git config --global core.autocrlf input
       - run: git clone http://git.haproxy.org/git/haproxy.git C:\cygwin64\haproxy
       - run: cd /haproxy-2.5.5 && make TARGET=cygwin USE_REGPARM=1 USE_PCRE2=1 USE_CRYPT_H=1 USE_GETADDRINFO=1 USE_OPENSSL=1 USE_SLZ=1 USE_PROMEX=1
 
