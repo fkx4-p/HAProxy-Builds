@@ -2,19 +2,23 @@ on:
   push:
     branches: [v1]
 
-runs-on: windows-latest
-uses: actions/checkout@v2
-- name: Set up Cygwin
-  uses: cygwin/cygwin-install-action@v2
-  with:
-    packages: cmake gcc-g++
-
 jobs:
+  
   build:
+
+    runs-on: windows-latest
+
     defaults:
       run:
         shell: C:\tools\cygwin\bin\bash.exe --login --norc -eo pipefail -o igncr '{0}'
     steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Cygwin
+        uses: cygwin/cygwin-install-action@v2
+        with:
+          packages: cmake gcc-g++
+
       - run: git config --global core.autocrlf input
       - run: git clone http://git.haproxy.org/git/haproxy.git C:\cygwin64\haproxy
       - run: cd /haproxy-2.5.5 && make TARGET=cygwin USE_REGPARM=1 USE_PCRE2=1 USE_CRYPT_H=1 USE_GETADDRINFO=1 USE_OPENSSL=1 USE_SLZ=1 USE_PROMEX=1
