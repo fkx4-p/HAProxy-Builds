@@ -14,6 +14,6 @@ jobs:
       - run: git clone http://git.haproxy.org/git/haproxy.git C:\cygwin64\haproxy
       - run:
         shell: C:\cygwin\bin\bash.exe --login --norc -eo pipefail
-        shell: cd /haproxy-2.5.5
-        shell: make TARGET=cygwin USE_REGPARM=1 USE_PCRE2=1 USE_CRYPT_H=1 USE_GETADDRINFO=1 USE_OPENSSL=1 USE_SLZ=1 USE_PROMEX=1
+        run: cd /haproxy-2.5.5
+        run: make TARGET=cygwin USE_REGPARM=1 USE_PCRE2=1 USE_CRYPT_H=1 USE_GETADDRINFO=1 USE_OPENSSL=1 USE_SLZ=1 USE_PROMEX=1
 
