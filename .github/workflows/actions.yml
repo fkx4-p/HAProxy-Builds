@@ -5,8 +5,8 @@ on:
 runs-on: windows-latest
 uses: actions/checkout@v2
 uses: cygwin/cygwin-install-action@v2
-  with:
-    packages: cmake gcc-g++
+with:
+  packages: cmake gcc-g++
 
 jobs:
   build:
